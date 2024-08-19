@@ -1,0 +1,226 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9; /* Cor de fundo suave */
+    color: #333; /* Cor do texto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#campo {
+
+    color: white;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url('/image/landscape-cartoon-scene-with-green-field-and-white-cloud-in-summer-blue-sky-background-vector.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+#CAMPOH {
+    border-radius: 5%;
+    background-color: #000000;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    top: -40%;
+    animation: blink 1s infinite; /* Adiciona a animação de piscar */
+}
+
+/* Define a animação de piscar */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1; /* Totalmente visível */
+    }
+    50% {
+        opacity: 0; /* Totalmente invisível */
+    }
+}
+#cachorro {
+    position: absolute;
+    width: 120px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-radius: 50%;
+    border: solid 5px black;
+}
+
+#cachorro:hover {
+    transform: scale(1.1);
+}
+
+#presente {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+   
+
+}
+
+.presente-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    perspective: 1000px;
+}
+
+.caixa {
+    width: 100%;
+    height: 100%;
+    background-color: #ff6347;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transform-style: preserve-3d;
+}
+
+.tampa {
+    width: 100%;
+    height: 50px;
+    background-color: #ff856c;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    transform-origin: bottom;
+    transition: transform 1s ease-in-out;
+}
+
+.conteudo {
+    width: 100%;
+    height: 100%;
+    background-color: #ff6347;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.laco-horizontal,
+.laco-vertical {
+    position: absolute;
+    background-color: #ff0000;
+    z-index: 2;
+}
+
+.laco-horizontal {
+    width: 100%;
+    height: 20px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.laco-vertical {
+    width: 20px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#presente.show .tampa {
+    animation: liftTampa 1s forwards; /* Animação para levantar a tampa */
+}
+
+#presente.show .conteudo {
+    opacity: 1;
+}
+
+@keyframes liftTampa {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-60px); /* Ajuste conforme necessário */
+    }
+}
+
+#mensagem {
+    height: 95%;
+    width: 50%;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-size: 1.2em;
+    color: #333;
+    animation: fadeIn 1s ease;
+    border: solid black 2px;
+}
+.mensagem-corpo{
+
+    color: #000000;
+}
+/* Define a animação de fade in */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Media query para dispositivos móveis (largura até 768px) */
+@media (max-width: 768px) {
+    #mensagem {
+        width: 80%;
+        font-size: 1em;
+        padding: 15px;
+    }
+}
+
+/* Media query para dispositivos muito pequenos (largura até 480px) */
+@media (max-width: 480px) {
+    #mensagem {
+        width: 90%;
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}
+/* Media query para dispositivos muito pequenos */
+@media (max-width: 480px) {
+    .mensagem-titulo {
+        font-size: 1.2em;
+    }
+
+    .mensagem-corpo {
+        font-size: 0.9em;
+    }
+
+    .mensagem-assinatura {
+        font-size: 1em;
+    }
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.texto-presente {
+    font-family: 'Arial', sans-serif; /* Fonte mais bonita */
+    font-size: 1.4em; /* Tamanho da fonte ajustado */
+    font-weight: bold; /* Negrito para destaque */
+    color: #fff; /* Cor do texto aprimorada */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Sombra para destaque */
+    margin-top: 20px; /* Espaçamento acima do texto */
+    display: flex; /* Flexbox para centralizar o texto */
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Altura total da caixa */
+}
